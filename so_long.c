@@ -3,32 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jalves-p <jalves-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joaopereira <joaopereira@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/14 14:30:20 by jalves-p          #+#    #+#             */
-/*   Updated: 2023/08/14 16:30:48 by jalves-p         ###   ########.fr       */
+/*   Created: 2023/08/13 21:18:09 by joaopereira       #+#    #+#             */
+/*   Updated: 2023/08/24 17:59:55 by joaopereira      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-	t_game	game;
+	t_game	draco;
 
-	ft_memset(&game, 0, sizeof(t_game));
-	read_map(&game, argv[1]);
-	if (!check_errors(&game, argv[1], argc))
-	{
-		ft_free(game.map);
-		return (0);
-	}
-	game.initmlx = mlx_init();
-	game.winmlx = mlx_new_window(game.initmlx, (game.map_width * 64),
-			(game.map_height * 64), "DRACO");
-	init_images(&game);
-	mlx_key_hook(game.winmlx, &controls, &game);
-	mlx_hook(game.winmlx, 17, 0L, (void *)exit_game, &game);
-	mlx_loop(game.initmlx);
+	check_ac(ac);
+	ft_memset(&draco, 0, sizeof(t_game));
+	read_map(&draco, av[1]);
+	check_errors(&draco);
+	draco.initmlx = mlx_init();
+	draco.winmlx = mlx_new_window(draco.initmlx, (draco.map_width
+				* 32), (draco.map_height * 32), "DRACO GAME");
+	init_images(&draco);
+	mlx_key_hook(draco.winmlx, &controls, &draco);
+	mlx_hook(draco.winmlx, 17, 0L, (void *)exit_game, &draco);
+	mlx_loop(draco.initmlx);
 	return (0);
 }
