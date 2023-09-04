@@ -6,7 +6,7 @@
 /*   By: joaopereira <joaopereira@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 22:10:14 by joaopereira       #+#    #+#             */
-/*   Updated: 2023/08/24 18:01:24 by joaopereira      ###   ########.fr       */
+/*   Updated: 2023/09/04 19:31:11 by joaopereira      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	exit_game(t_game *game)
 		mlx_destroy_window(game->initmlx, game->winmlx);
 	mlx_destroy_display(game->initmlx);
 	free(game->initmlx);
-	ft_printf("\nExit DRACO Game\n");
+	ft_printf("\nExit MY Game\n");
 	exit(0);
 }
 

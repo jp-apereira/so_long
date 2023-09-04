@@ -6,7 +6,7 @@
 /*   By: joaopereira <joaopereira@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 22:35:39 by joaopereira       #+#    #+#             */
-/*   Updated: 2023/08/24 18:00:46 by joaopereira      ###   ########.fr       */
+/*   Updated: 2023/08/25 20:47:03 by joaopereira      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void	init_images(t_game *game)
 	game->img.addr = mlx_get_data_addr(game->img.ptr, &(game->img.bpp),
 			&(game->img.line_len), &(game->img.endian));
 	game->floor = create_img("imagens/floor.xpm", game);
-	game->wall = create_img("imagens/wall.xpm", game);
+	game->wall = create_img("imagens/wall1.xpm", game);
 	game->player = create_img("imagens/char.xpm", game);
-	game->exit = create_img("imagens/wall.xpm", game);
-	game->collect = create_img("imagens/wall.xpm", game);
+	game->exit = create_img("imagens/door.xpm", game);
+	game->collect = create_img("imagens/key.xpm", game);
 	put_images(game);
 }
 
