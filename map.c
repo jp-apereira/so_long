@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaopereira <joaopereira@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jalves-p <jalves-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:46:40 by jalves-p          #+#    #+#             */
-/*   Updated: 2023/08/24 17:55:12 by joaopereira      ###   ########.fr       */
+/*   Updated: 2023/09/05 10:46:36 by jalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	check_limits(t_game *game)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
-	j = game ->map_height - 1;
+	j = game->map_height - 1;
 	i = 0;
 	while (i < game->map_width)
 	{
-		if(game->map[0][i] == '1' && game->map[j][i] == '1')
+		if (game->map[0][i] == '1' && game->map[j][i] == '1')
 			i++;
 		else
 			return (0);
@@ -30,18 +30,18 @@ int	check_limits(t_game *game)
 	i = 0;
 	while (i < game->map_height)
 	{
-		if(game->map[i][0] == '1' && game->map[i][j] == '1')
+		if (game->map[i][0] == '1' && game->map[i][j] == '1')
 			i++;
 		else
 			return (0);
 	}
-	return (1);	
+	return (1);
 }
 
-int save_map_line(t_game *game, char *line)
+int	save_map_line(t_game *game, char *line)
 {
-	char **temp_map;
-	int i;
+	char	**temp_map;
+	int		i;
 
 	if (!line)
 		return (0);
@@ -60,7 +60,7 @@ int save_map_line(t_game *game, char *line)
 	return (1);
 }
 
-void save_coords(t_game *game, int y, int x, int flag)
+void	save_coords(t_game *game, int y, int x, int flag)
 {
 	if (flag == 0)
 	{
@@ -76,11 +76,11 @@ void save_coords(t_game *game, int y, int x, int flag)
 	}
 }
 
-int read_chars(t_game *game)
+int	read_chars(t_game *game)
 {
-	int x;
-	int y;
-	
+	int	x;
+	int	y;
+
 	y = 0;
 	while (++y < game->map_height)
 	{

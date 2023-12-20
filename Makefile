@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joaopereira <joaopereira@student.42.fr>    +#+  +:+       +#+         #
+#    By: jalves-p <jalves-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/14 10:24:03 by jalves-p          #+#    #+#              #
-#    Updated: 2023/08/24 17:12:43 by joaopereira      ###   ########.fr        #
+#    Updated: 2023/09/05 13:36:35 by jalves-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 SRCS = checkers.c controls.c ft_utils.c map.c\
-		so_long.c imags.c\
+		so_long.c imags.c ft_utils2.c\
 		
 OBJS = $(SRCS:.c=.o)
 

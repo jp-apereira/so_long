@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkers.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaopereira <joaopereira@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jalves-p <jalves-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 18:34:01 by joaopereira       #+#    #+#             */
-/*   Updated: 2023/08/24 16:59:07 by joaopereira      ###   ########.fr       */
+/*   Updated: 2023/09/05 13:36:46 by jalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,6 @@ void	check_ac(int ac)
 		write(2, "Error: Too few aguments\n", 24);
 		exit(EXIT_FAILURE);
 	}
-}
-
-void	flod_fill(char **map, int x, int y, int *counter)
-{
-	if (map[y][x] == 'C' || map[y][x] == 'E')
-		*counter += 1;
-	map[y][x] = 'F';
-	if (map[y][x + 1] != '1' && map[y][x + 1] != 'F')
-		flod_fill(map, x + 1, y, counter);
-	if (map[y][x - 1] != '1' && map[y][x - 1] != 'F')
-		flod_fill(map, x - 1, y, counter);
-	if (map[y + 1][x] != '1' && map[y + 1][x] != 'F')
-		flod_fill(map, x, y + 1, counter);
-	if (map[y - 1][x] != '1' && map[y - 1][x] != 'F')
-		flod_fill(map, x, y - 1, counter);
 }
 
 int	check_fd(char *filepath)
@@ -98,7 +83,6 @@ void	check_errors(t_game *game)
 		errors_map(game);
 	else if (game->player_count != 1)
 		errors_map(game);
-		/* 
-	else if (!handle_flood_fill(game))
-		errors_map(game); */
+	else if (!handle_ff(game))
+		errors_map(game);
 }

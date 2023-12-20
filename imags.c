@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   imags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaopereira <joaopereira@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jalves-p <jalves-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 22:35:39 by joaopereira       #+#    #+#             */
-/*   Updated: 2023/08/25 20:47:03 by joaopereira      ###   ########.fr       */
+/*   Updated: 2023/09/05 10:57:12 by jalves-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ t_data	create_img(char *path, t_game *game)
 	t_data	img;
 
 	img.ptr = mlx_xpm_file_to_image(game->initmlx, path, &img.x, &img.y);
-	img.addr = mlx_get_data_addr(img.ptr, &img.bpp, &img.line_len,
-			&img.endian);
+	img.addr = mlx_get_data_addr(img.ptr, &img.bpp, &img.line_len, &img.endian);
 	return (img);
 }
 
@@ -39,9 +38,9 @@ void	put_images(t_game *game)
 void	init_images(t_game *game)
 {
 	game->img.ptr = mlx_new_image(game->initmlx, game->map_width * 32,
-			game->map_height * 32);
+		game->map_height * 32);
 	game->img.addr = mlx_get_data_addr(game->img.ptr, &(game->img.bpp),
-			&(game->img.line_len), &(game->img.endian));
+		&(game->img.line_len), &(game->img.endian));
 	game->floor = create_img("imagens/floor.xpm", game);
 	game->wall = create_img("imagens/wall1.xpm", game);
 	game->player = create_img("imagens/char.xpm", game);
